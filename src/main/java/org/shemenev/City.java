@@ -76,9 +76,9 @@ public class City {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         City city = (City) o;
-        return Objects.equals(getName(), city.getName()) && Objects.equals(getRegion(),
-                city.getRegion()) && Objects.equals(getDistrict(), city.getDistrict()) && Objects.equals(getPopulation(),
-                city.getPopulation()) && Objects.equals(getFoundation(), city.getFoundation());
+        return getName().equals(city.getName()) && getRegion().equals(city.getRegion())
+                && getDistrict().equals(city.getDistrict()) && getPopulation().equals(city.getPopulation())
+                && getFoundation().equals(city.getFoundation());
     }
 
     @Override
