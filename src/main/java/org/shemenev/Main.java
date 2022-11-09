@@ -1,11 +1,9 @@
 package org.shemenev;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +13,13 @@ import java.util.stream.Stream;
 
 public class Main {
 
-    static String path = "src/main/resources/city_ru.csv";
+//    static String path = "src/main/resources/city_ru.csv";
     static List<City> cityList = new ArrayList<City>();
 
 
-    public static void readFromFile(String path, List<City> cityList) throws FileNotFoundException {
+    public static void readFromFile(String path, List<City> cityList) throws IOException {
 
-        Scanner scanner = new Scanner(new File(path));
+        Scanner scanner = new Scanner(new File(path), StandardCharsets.UTF_8);
         String line = "";
 
         while (scanner.hasNextLine()) {
@@ -39,12 +37,23 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+        System.out.println("""
+                ----
+                Пожалуйста, введите путь к фалу  city_ru.csv 
+                Убедитесь, что путь не содержит кириллицу!
+                ----
+                """);
+        Scanner inputPath = new Scanner(System.in);
+        String path = inputPath.next();
+        inputPath.close();
+
         readFromFile(path, cityList);
         cityList.forEach(System.out::println);
     }
 }
 
-// другой вариант решения;
+          // другой вариант решения:
+
 //        List<City> cityList2 = new ArrayList<>();
 //
 //        try (Stream<String> stream = Files.lines(Paths.get(path), StandardCharsets.UTF_8)) {
