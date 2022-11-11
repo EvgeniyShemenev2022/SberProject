@@ -59,7 +59,7 @@ public class CityUtils {
         String name = scanner.next();
         String region = scanner.next();
         String district = scanner.next();
-        String population = scanner.next();
+        int population = scanner.nextInt();
         String foundation = null; // в исходном файле есть города без этого значения;
 
         if (scanner.hasNext()) {
