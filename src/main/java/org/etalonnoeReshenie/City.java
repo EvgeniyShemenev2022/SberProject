@@ -1,16 +1,14 @@
 package org.etalonnoeReshenie;
 
-import java.util.Objects;
-
 public class City {
 
     private String name;
     private String region;
     private String district;
-    private String population;
+    private int population;
     private String foundation;
 
-    public City(String name, String region, String district, String population, String foundation) {
+    public City(String name, String region, String district, int population, String foundation) {
         this.name = name;
         this.region = region;
         this.district = district;
@@ -27,7 +25,7 @@ public class City {
     public String getDistrict() {
         return district;
     }
-    public String getPopulation() {
+    public int getPopulation() {
         return population;
     }
     public String getFoundation() {
